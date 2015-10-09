@@ -1,0 +1,20 @@
+TG
+gamedoc v.0.1
+
+Idee:
+Tajemnicze stacje nadawcze, motyw szpiegowski. Inspiracja 'serial experimental lain'
+https://en.wikipedia.org/wiki/UVB-76
+https://en.wikipedia.org/wiki/Numbers_station
+https://en.wikipedia.org/wiki/Schumann_resonances
+http://uncyclopedia.wikia.com/wiki/Serial_Experiments_Lain
+
+Technikalia:
+ - strona 300, spis tresci
+ - mozliwosc przeskoczenia do dowolnej strony
+ - ilosc stron: 100 do 899 (teoretycznie stron może być 2048=7ffh+1)
+ -  Znaki mają stałą szerokość. Każda strona może posiadać wiele podstron – teoretycznie może ich być 8192 (1fffh+1 ponieważ maska numeru podstrony to 3f7fh), lecz w praktyce nie używa się więcej niż 80=7fh+1.
+ - Przesyłane słowa 8-bitowe to indeks znaku alfanumerycznego w kodzie ASCII, znaki semigraficzne, instrukcje dotyczące wyświetlanych znaków (wielkość, kolor, itd.) i instrukcje sterujące tryb pracy (tekst lub tekst na tle programu)
+ - identified by the first digit of the three-digit page number (1–8). Within each magazine there may theoretically be up to 256 pages at a given time, numbered in hexadecimal and prefixed with the magazine number – for example magazine 2 may contain pages numbered 200-2FF
+ -  There will typically be a delay of a few seconds from requesting the page and it being broadcast and displayed, the time being entirely dependent in the number of pages being broadcast in the magazine (parallel mode) or in total (serial mode) and the number of VBI lines allocated. In parallel mode, therefore, some magazines will load faster than others.
+ - teletext is broadcast, so it does not slow down further as the number of users increase, although the greater number of pages, the longer one is likely to wait for each to be found in the cycle
+ - It has proved to be a reliable text news service during events such as the September 11 terrorist attacks, during which the webpages of major news sites became inaccessible because of the high demand.[citation needed] Teletext is also used for carrying special packets interpreted by TVs and video recorders, containing information about channels, programming, etc. (see Other teletext-related services).
