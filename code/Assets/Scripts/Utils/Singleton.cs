@@ -17,12 +17,12 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
 
     public static T Instance {
         get {
-            /*if (applicationIsQuitting) {
+            if (applicationIsQuitting) {
                 Debug.LogWarning("[Singleton] Instance '" + typeof(T) +
                     "' already destroyed on application quit." +
                     " Won't create again - returning null.");
                 return null;
-            }*/
+            }
 
             lock (_lock) {
                 if (_instance == null) {
@@ -35,14 +35,12 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
                         return _instance;
                     }
 
-                    if (_instance == null) {
-                        /*
+                    if (_instance == null) {                        
                         GameObject singleton = new GameObject();
                         _instance = singleton.AddComponent<T>();
                         singleton.name = "(singleton) " + typeof(T).ToString();
 
-                        DontDestroyOnLoad(singleton); 
-                        */
+                        DontDestroyOnLoad(singleton);                         
 
                         Debug.Log("[Singleton] An instance of " + typeof(T) +
                             " is needed but none found");
@@ -60,7 +58,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
         }
     }
 
-    //private static bool applicationIsQuitting = false;
+    private static bool applicationIsQuitting = false;
     /// <summary>
     /// When Unity quits, it destroys objects in a random order.
     /// In principle, a Singleton is only destroyed when application quits.
@@ -70,7 +68,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
     /// So, this was made to be sure we're not creating that buggy ghost object.
     /// </summary>
     public void OnDestroy() {
-        //applicationIsQuitting = true;
+        applicationIsQuitting = true;
     }
     protected virtual void Awake() {        
         if (FindObjectsOfType(typeof(T)).Length > 1) {
