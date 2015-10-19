@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class Msg {
-    public class MLoadGame : TinyMessenger.ITinyMessage {
+    public class MDummyMsg : TinyMessenger.ITinyMessage {
         #region Implementation
-        public MLoadGame() {}
+        public MDummyMsg() { }
         public object Sender {
             get {
                 return null;
