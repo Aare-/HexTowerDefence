@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70748ffcd0bfc314ebc6f5a88902e2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ElevationLevel: 0
+  ElevationLevel: 10
   ResourcesEnemiesPrefix: enemies
   ResourcesTilessPrefix: tiles
   ResourcesTurretsPrefix: turrets
