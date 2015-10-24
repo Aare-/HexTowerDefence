@@ -6,9 +6,7 @@ using System.Text;
 using UnityEngine;
 
 public class AddViewSystem : IReactiveSystem {
-    public TriggerOnEvent trigger { get { return Matcher.Resource.OnEntityAdded(); } }
-
-    readonly Transform _viewContainer = new GameObject("views").transform;
+    public TriggerOnEvent trigger { get { return Matcher.Resource.OnEntityAdded(); } }    
 
     public void Execute(List<Entity> entities) {
         foreach (var e in entities) {
@@ -19,12 +17,21 @@ public class AddViewSystem : IReactiveSystem {
 
             } catch (Exception) {
                 Debug.Log("Cannot instantiate " + res);
+                continue;
             }
-
-            if (gameObject != null) {
-                gameObject.transform.parent = _viewContainer;
+            
+            Transform parent = GameController.Instance.gameObject.transform.Find(e.resource.container.ToString());
+            if (parent == null) {
+                Debug.Log("Parent not found for id: " + e.resource.container.ToString());
+                continue;
+            } else {
+                gameObject.transform.parent = parent;
+                if (e.hasView) {
+                    Debug.Log("Removing previous GameObject");
+                    e.RemoveView();
+                }
                 e.AddView(gameObject);
-            }
+            }                            
         }
     }
 }
