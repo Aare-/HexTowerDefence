@@ -7,7 +7,7 @@ using UnityEngine;
 
 public partial class GameController : Singleton<GameController> {
     [Header("Tiles")]    
-    public float ElevationLevel;
+    public float ElevationLevel = 1.0f;
 
     [Header("Resources")]
     public string ResourcesEnemiesPrefix = "enemies";
