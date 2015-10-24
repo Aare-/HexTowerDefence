@@ -12,9 +12,16 @@ public class CreateMap : IInitializeSystem, ISetPool {
     }
 
     public void Initialize() {
-        _pool.CreateEntity()
-            .AddHexTileDefinition(
-                (HexTileDefinition.TileType)System.Enum.GetValues(typeof(HexTileDefinition.TileType)).GetRandomElement())
-            .AddHexPosition(0, 0, 0, Random.Range(0, 3));            
+        int size = 2;
+
+        for (int i = -size; i <= size; i++) {
+            for(int j = Mathf.Max(-size, -i-size); j <= Mathf.Min(size, -i+size); j++) {
+                var k = -i - j;                 
+                _pool.CreateEntity()
+                    .AddHexTileDefinition(
+                    (HexTileDefinition.TileType)System.Enum.GetValues(typeof(HexTileDefinition.TileType)).GetRandomElement())
+                    .AddHexPosition(i, j, k, 0);
+            }            
+        }            
     }
 }
