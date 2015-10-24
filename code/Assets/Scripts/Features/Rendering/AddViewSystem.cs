@@ -26,6 +26,10 @@ public class AddViewSystem : IReactiveSystem {
                 continue;
             } else {
                 gameObject.transform.parent = parent;
+                if (e.hasView) {
+                    Debug.Log("Removing previous GameObject");
+                    e.RemoveView();
+                }
                 e.AddView(gameObject);
             }                            
         }

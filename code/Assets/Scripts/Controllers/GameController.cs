@@ -29,9 +29,13 @@ public partial class GameController : Singleton<GameController> {
             .Add(pool.CreateSystem<CreateGUI>())            
 
             // Render            
-            .Add(pool.CreateSystem<AddViewSystem>())            
-            .Add(pool.CreateSystem<RenderPositionSystem>())            
+            .Add(pool.CreateSystem<AddViewSystem>())
+            .Add(pool.CreateSystem<AddHexTileSystem>())
+            .Add(pool.CreateSystem<PositionHexSystem>())            
+            .Add(pool.CreateSystem<PositionCartesianSystem>())            
             
+            //Destroy
+            .Add(pool.CreateSystem<RemoveViewSystem>())
             ;
     }
 }
