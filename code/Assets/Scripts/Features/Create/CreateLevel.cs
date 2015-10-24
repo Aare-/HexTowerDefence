@@ -13,7 +13,6 @@ class CreateLevel : IInitializeSystem, ISetPool {
 
     public void Initialize() {
         _pool.CreateEntity()            
-             .AddPosition(0, 0, 0)
-             .AddResource("scene_level");
+             .AddPosition(0, 0, 0);
     }
 }
