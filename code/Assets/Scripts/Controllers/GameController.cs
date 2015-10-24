@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-class GameController : MonoBehaviour {    
+public partial class GameController : Singleton<GameController> {    
     Systems _systems;
 
-    void Start() {
+    void Start() {        
         _systems = createSystems(Pools.pool);
         _systems.Initialize();
     }
@@ -25,10 +25,11 @@ class GameController : MonoBehaviour {
         return new Systems()
         #endif            
             // Initialize            
-            .Add(pool.CreateSystem<CreateLevel>())
+            .Add(pool.CreateSystem<CreateMap>())
+            .Add(pool.CreateSystem<CreateGUI>())            
 
             // Render            
-            .Add(pool.CreateSystem<AddViewSystem>())
+            .Add(pool.CreateSystem<AddViewSystem>())            
             .Add(pool.CreateSystem<RenderPositionSystem>())            
             
             ;

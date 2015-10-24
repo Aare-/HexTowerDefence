@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-class CreateLevel : IInitializeSystem, ISetPool {
+public class CreateMap : IInitializeSystem, ISetPool {
     Pool _pool;
 
     public void SetPool(Pool pool) {
@@ -12,7 +12,9 @@ class CreateLevel : IInitializeSystem, ISetPool {
     }
 
     public void Initialize() {
-        _pool.CreateEntity()            
-             .AddPosition(0, 0, 0);
+
+
+        //_pool.CreateEntity()
+          //  .
     }
 }

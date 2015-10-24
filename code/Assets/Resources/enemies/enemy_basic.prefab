@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 406344}
   - 95: {fileID: 9527316}
   m_Layer: 0
-  m_Name: enemy
+  m_Name: enemy_basic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

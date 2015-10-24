@@ -12,15 +12,17 @@ namespace Entitas {
             _resourceComponentPool.Clear();
         }
 
-        public Entity AddResource(string newName) {
+        public Entity AddResource(ResourceComponent.ViewContainer newContainer, string newName) {
             var component = _resourceComponentPool.Count > 0 ? _resourceComponentPool.Pop() : new ResourceComponent();
+            component.container = newContainer;
             component.name = newName;
             return AddComponent(ComponentIds.Resource, component);
         }
 
-        public Entity ReplaceResource(string newName) {
+        public Entity ReplaceResource(ResourceComponent.ViewContainer newContainer, string newName) {
             var previousComponent = hasResource ? resource : null;
             var component = _resourceComponentPool.Count > 0 ? _resourceComponentPool.Pop() : new ResourceComponent();
+            component.container = newContainer;
             component.name = newName;
             ReplaceComponent(ComponentIds.Resource, component);
             if (previousComponent != null) {
