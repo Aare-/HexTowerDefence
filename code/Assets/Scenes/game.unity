@@ -132,14 +132,14 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &438318258
 AudioListener:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 438318257}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &438318259
 Behaviour:
   m_ObjectHideFlags: 0
@@ -226,11 +226,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70748ffcd0bfc314ebc6f5a88902e2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ElevationLevel: 5
+  ElevationLevelUnit: 1
   TileSize: 1
   ResourcesEnemiesPrefix: enemies
   ResourcesTilessPrefix: tiles
   ResourcesTurretsPrefix: turrets
+  EnemySpawnDeltaTime: 1
+  EnemySpawnRadius: 7
+  EnemySpawnY: 2
+  EnemyVelocity: .600000024
 --- !u!4 &615636934
 Transform:
   m_ObjectHideFlags: 0

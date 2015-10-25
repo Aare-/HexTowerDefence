@@ -12,7 +12,6 @@ GameObject:
   - 92: {fileID: 9216476}
   - 124: {fileID: 12442438}
   - 81: {fileID: 8199452}
-  - 114: {fileID: 11498240}
   m_Layer: 0
   m_Name: main_camera
   m_TagString: MainCamera
@@ -29,6 +28,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 402422}
   - 114: {fileID: 11419324}
+  - 114: {fileID: 11407116}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -89,7 +89,6 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -109,6 +108,18 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156132}
   m_Enabled: 1
+--- !u!114 &11407116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8fb209aab94b4478ccaca4ec81bb23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretPrefab: {fileID: 182214, guid: 37d6a3952bc8f6a4fb95b2f84237dab1, type: 2}
 --- !u!114 &11419324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,18 +134,6 @@ MonoBehaviour:
   rotationSpeed: 10
   moveSpeed: 5
   translation: 0
---- !u!114 &11498240
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 156132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b8fb209aab94b4478ccaca4ec81bb23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turretPrefab: {fileID: 137624, guid: 9cdcb909ab9b25c4b8f1bae661022dfc, type: 2}
 --- !u!124 &12442438
 Behaviour:
   m_ObjectHideFlags: 1
@@ -148,7 +147,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: turretPrefab
+      value: 
+      objectReference: {fileID: 182214, guid: 37d6a3952bc8f6a4fb95b2f84237dab1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 157302}
