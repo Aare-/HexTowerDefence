@@ -9,4 +9,10 @@ public class HexPosition : IComponent {
     public int y;
     public int z;
     public float elevation;
+
+    public static HexPosition FromPixelCoordinates() {
+        HexPosition position = new HexPosition();
+
+        return position;
+    }
 }

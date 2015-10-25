@@ -6,5 +6,4 @@ using System.Text;
 
 public class Movable : IComponent {
     public float velocity;
-
 }
