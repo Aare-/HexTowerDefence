@@ -31,7 +31,8 @@ public partial class GameController : Singleton<GameController> {
             // Update
             .Add(pool.CreateSystem<MoveEnemiesSystem>())
 
-            // Render            
+            // Render          
+            .Add(pool.CreateSystem<AddTurretSystem>())       
             .Add(pool.CreateSystem<AddViewSystem>())
             .Add(pool.CreateSystem<AddMapSystem>())
             .Add(pool.CreateSystem<AddHexTileSystem>())

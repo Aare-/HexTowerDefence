@@ -29,7 +29,7 @@ GameObject:
   - 4: {fileID: 402422}
   - 114: {fileID: 11419324}
   m_Layer: 0
-  m_Name: camera
+  m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
