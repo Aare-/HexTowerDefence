@@ -37,6 +37,38 @@ namespace Entitas {
         }
     }
 
+    public partial class Pool {
+        public Entity mapDefinitionEntity { get { return GetGroup(Matcher.MapDefinition).GetSingleEntity(); } }
+
+        public MapDefinition mapDefinition { get { return mapDefinitionEntity.mapDefinition; } }
+
+        public bool hasMapDefinition { get { return mapDefinitionEntity != null; } }
+
+        public Entity SetMapDefinition(int newRadius) {
+            if (hasMapDefinition) {
+                throw new SingleEntityException(Matcher.MapDefinition);
+            }
+            var entity = CreateEntity();
+            entity.AddMapDefinition(newRadius);
+            return entity;
+        }
+
+        public Entity ReplaceMapDefinition(int newRadius) {
+            var entity = mapDefinitionEntity;
+            if (entity == null) {
+                entity = SetMapDefinition(newRadius);
+            } else {
+                entity.ReplaceMapDefinition(newRadius);
+            }
+
+            return entity;
+        }
+
+        public void RemoveMapDefinition() {
+            DestroyEntity(mapDefinitionEntity);
+        }
+    }
+
     public partial class Matcher {
         static IMatcher _matcherMapDefinition;
 
