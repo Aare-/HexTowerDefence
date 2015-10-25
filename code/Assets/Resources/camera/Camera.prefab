@@ -12,6 +12,7 @@ GameObject:
   - 92: {fileID: 9216476}
   - 124: {fileID: 12442438}
   - 81: {fileID: 8199452}
+  - 114: {fileID: 11498240}
   m_Layer: 0
   m_Name: main_camera
   m_TagString: MainCamera
@@ -122,6 +123,18 @@ MonoBehaviour:
   rotationSpeed: 10
   moveSpeed: 5
   translation: 0
+--- !u!114 &11498240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8fb209aab94b4478ccaca4ec81bb23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretPrefab: {fileID: 137624, guid: 9cdcb909ab9b25c4b8f1bae661022dfc, type: 2}
 --- !u!124 &12442438
 Behaviour:
   m_ObjectHideFlags: 1
