@@ -15,10 +15,8 @@ public class AddMapSystem : IReactiveSystem, ISetPool {
 
     public void Execute(List<Entity> entities) {
         foreach (var e in entities) {
-            foreach (Entity hex in _pool.GetGroup(Matcher.HexTileDefinition).GetEntities()) {
-                hex.destroy();            
-                hex.Release();
-            }
+            foreach (Entity hex in _pool.GetGroup(Matcher.HexTileDefinition).GetEntities())
+                hex.IsDestroy(true);            
 
             int size = e.mapDefinition.radius;
 

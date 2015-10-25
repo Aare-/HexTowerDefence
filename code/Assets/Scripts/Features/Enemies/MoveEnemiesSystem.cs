@@ -31,11 +31,9 @@ public class MoveEnemiesSystem : IExecuteSystem, ISetPool {
             Vector2 pos2d = new Vector2(pos.x, pos.z);
             float angle = Vector2.Angle(pos2d, Vector2.right);
             e.view.gameObject.transform.LookAt(Vector3.zero);
-
-            if (pos2d.magnitude < 0.4f) {
-                e.destroy();
-                e.Release();
-            }
+            
+            if (pos2d.magnitude < 0.4f)
+                e.IsDestroy(true);
         }
 
         deltaSpawnTime -= Time.deltaTime;

@@ -42,6 +42,7 @@ public partial class GameController : Singleton<GameController> {
             
             //Destroy
             .Add(pool.CreateSystem<RemoveViewSystem>())
+            .Add(pool.CreateSystem<DestroySystem>())
             ;        
     }
 }
