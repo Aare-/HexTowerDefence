@@ -19,7 +19,7 @@ public class PositionHexSystem : IReactiveSystem, IEnsureComponents {
             float x = (float)(GameController.Instance.TileSize * Math.Sqrt(3.0f) * (q + r/2.0f));
             float y = y = GameController.Instance.TileSize * 3.0f / 2.0f * r;
             
-            float tileElevation = GameController.Instance.ElevationLevel * e.hexPosition.elevation;            
+            float tileElevation = GameController.Instance.ElevationLevelUnit * e.hexPosition.elevation;            
 
             e.view.gameObject.transform.position = new Vector3(x, tileElevation, y);
         }

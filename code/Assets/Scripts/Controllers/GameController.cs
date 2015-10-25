@@ -26,7 +26,11 @@ public partial class GameController : Singleton<GameController> {
         #endif            
             // Initialize                        
             .Add(pool.CreateSystem<InitGame>())            
-			.Add(pool.CreateSystem<CreateCamera>())
+			//.Add(pool.CreateSystem<CreateCamera>())
+
+            // Update
+            .Add(pool.CreateSystem<MoveEnemiesSystem>())
+
             // Render            
             .Add(pool.CreateSystem<AddViewSystem>())
             .Add(pool.CreateSystem<AddMapSystem>())

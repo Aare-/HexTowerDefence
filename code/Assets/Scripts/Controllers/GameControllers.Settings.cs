@@ -7,7 +7,7 @@ using UnityEngine;
 
 public partial class GameController : Singleton<GameController> {
     [Header("Tiles")]    
-    public float ElevationLevel = 1.0f;
+    public float ElevationLevelUnit = 1.0f;
     public float TileSize = 10.0f;    
 
     [Header("Resources")]
