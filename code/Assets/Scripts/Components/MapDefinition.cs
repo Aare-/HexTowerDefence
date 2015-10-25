@@ -6,4 +6,5 @@ using System.Text;
 
 public class MapDefinition : IComponent {
     public int radius;
+    public float chanceOfBlockedTile;
 }

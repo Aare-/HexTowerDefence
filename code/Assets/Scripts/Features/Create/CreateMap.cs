@@ -19,7 +19,8 @@ public class CreateMap : IInitializeSystem, ISetPool {
                 var k = -i - j;                 
                 _pool.CreateEntity()
                     .AddHexTileDefinition(
-                    (HexTileDefinition.TileType)System.Enum.GetValues(typeof(HexTileDefinition.TileType)).GetRandomElement())
+                    (HexTileDefinition.TileType)System.Enum.GetValues(typeof(HexTileDefinition.TileType)).GetRandomElement(), 
+                    true)
                     .AddHexPosition(i, j, k, 0);
             }            
         }            

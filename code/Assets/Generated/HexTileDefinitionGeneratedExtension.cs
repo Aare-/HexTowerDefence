@@ -12,16 +12,18 @@ namespace Entitas {
             _hexTileDefinitionComponentPool.Clear();
         }
 
-        public Entity AddHexTileDefinition(HexTileDefinition.TileType newType) {
+        public Entity AddHexTileDefinition(HexTileDefinition.TileType newType, bool newIsBlocked) {
             var component = _hexTileDefinitionComponentPool.Count > 0 ? _hexTileDefinitionComponentPool.Pop() : new HexTileDefinition();
             component.type = newType;
+            component.isBlocked = newIsBlocked;
             return AddComponent(ComponentIds.HexTileDefinition, component);
         }
 
-        public Entity ReplaceHexTileDefinition(HexTileDefinition.TileType newType) {
+        public Entity ReplaceHexTileDefinition(HexTileDefinition.TileType newType, bool newIsBlocked) {
             var previousComponent = hasHexTileDefinition ? hexTileDefinition : null;
             var component = _hexTileDefinitionComponentPool.Count > 0 ? _hexTileDefinitionComponentPool.Pop() : new HexTileDefinition();
             component.type = newType;
+            component.isBlocked = newIsBlocked;
             ReplaceComponent(ComponentIds.HexTileDefinition, component);
             if (previousComponent != null) {
                 _hexTileDefinitionComponentPool.Push(previousComponent);

@@ -12,16 +12,18 @@ namespace Entitas {
             _mapDefinitionComponentPool.Clear();
         }
 
-        public Entity AddMapDefinition(int newRadius) {
+        public Entity AddMapDefinition(int newRadius, float newChanceOfBlockedTile) {
             var component = _mapDefinitionComponentPool.Count > 0 ? _mapDefinitionComponentPool.Pop() : new MapDefinition();
             component.radius = newRadius;
+            component.chanceOfBlockedTile = newChanceOfBlockedTile;
             return AddComponent(ComponentIds.MapDefinition, component);
         }
 
-        public Entity ReplaceMapDefinition(int newRadius) {
+        public Entity ReplaceMapDefinition(int newRadius, float newChanceOfBlockedTile) {
             var previousComponent = hasMapDefinition ? mapDefinition : null;
             var component = _mapDefinitionComponentPool.Count > 0 ? _mapDefinitionComponentPool.Pop() : new MapDefinition();
             component.radius = newRadius;
+            component.chanceOfBlockedTile = newChanceOfBlockedTile;
             ReplaceComponent(ComponentIds.MapDefinition, component);
             if (previousComponent != null) {
                 _mapDefinitionComponentPool.Push(previousComponent);
