@@ -7,9 +7,10 @@ public static class ComponentIds {
     public const int Movable = 5;
     public const int Position = 6;
     public const int Resource = 7;
-    public const int View = 8;
+    public const int TurretDefinition = 8;
+    public const int View = 9;
 
-    public const int TotalComponents = 9;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "Destroy",
@@ -20,6 +21,7 @@ public static class ComponentIds {
         "Movable",
         "Position",
         "Resource",
+        "TurretDefinition",
         "View"
     };
 
@@ -32,6 +34,7 @@ public static class ComponentIds {
         typeof(Movable),
         typeof(PositionComponent),
         typeof(ResourceComponent),
+        typeof(TurretDefinition),
         typeof(ViewComponent)
     };
 }
