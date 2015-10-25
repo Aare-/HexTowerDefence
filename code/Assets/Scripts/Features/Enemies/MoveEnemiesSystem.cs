@@ -30,7 +30,7 @@ public class MoveEnemiesSystem : IExecuteSystem, ISetPool {
 
             Vector2 pos2d = new Vector2(pos.x, pos.z);
             float angle = Vector2.Angle(pos2d, Vector2.right);
-            e.view.gameObject.transform.rotation.SetEulerAngles(0.0f, 0.0f, angle * Mathf.Deg2Rad);
+            e.view.gameObject.transform.LookAt(Vector3.zero);
 
             if (pos2d.magnitude < 0.4f) {
                 e.destroy();
