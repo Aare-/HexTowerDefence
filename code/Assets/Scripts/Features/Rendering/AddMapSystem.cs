@@ -22,12 +22,17 @@ public class AddMapSystem : IReactiveSystem, ISetPool {
 
             for (int i = -size; i <= size; i++) {
                 for(int j = Mathf.Max(-size, -i-size); j <= Mathf.Min(size, -i+size); j++) {
-                    var k = -i - j;                 
+                    var k = -i - j;
+                    float elevation = 0.0f;
+
+                    if (i == j && j == k && k == 0)
+                        elevation = -1.0f;
+
                     _pool.CreateEntity()
                         .AddHexTileDefinition(
                             (HexTileDefinition.TileType)System.Enum.GetValues(typeof(HexTileDefinition.TileType)).GetRandomElement(),
                             Random.Range(0.0f, 1.0f) <= e.mapDefinition.chanceOfBlockedTile)
-                        .AddHexPosition(i, j, k, 0);
+                        .AddHexPosition(i, j, k, elevation);
                 }            
             }         
         }
