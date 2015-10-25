@@ -5,5 +5,5 @@ using System.Linq;
 using System.Text;
 
 public class Enemy : IComponent {
-
+    public float life;
 }

@@ -4,28 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-/*
-class AddEnemySystem : IReactiveSystem {
-     public TriggerOnEvent trigger { get {  return Matcher.AllOf(Matcher.Enem).OnEntityAdded(); }}    
+class AddEnemiesSystem : IReactiveSystem {
+     public TriggerOnEvent trigger { get {  return Matcher.AllOf(Matcher.Enemy).OnEntityAdded(); }}
 
-    public void Execute(List<Entity> entities) {        
+     public void Execute(List<Entity> entities) {
+         foreach (Entity e in entities) {                          
+            e.AddResource(
+                ResourceComponent.ViewContainer.game_scene,
+                GameController.Instance.ResourcesEnemiesPrefix + "/enemy_basic")
+             .AddHexPosition(2, -2, 0, 0);
 
-        foreach (Entity e in entities) {
-            string resourcePath;
-            resourcePath = 
-                GameController.Instance.ResourcesTilessPrefix + "/" +  
-                    (e.hexTileDefinition.isBlocked ?
-                        Enum.GetValues(typeof(HexTileDefinition.BlockedTileType)).GetRandomElement() : 
-                        e.hexTileDefinition.type.ToString());
 
-            if(e.hasResource)
-                e.ReplaceResource(
-                    ResourceComponent.ViewContainer.game_scene,
-                    resourcePath);                
-            else 
-                e.AddResource(
-                    ResourceComponent.ViewContainer.game_scene,
-                    resourcePath);                        
-        }
+             
+
+         }
+     }
 }
-*/

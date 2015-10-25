@@ -16,7 +16,7 @@ public class AddViewSystem : IReactiveSystem {
                 gameObject = UnityEngine.Object.Instantiate(res);
 
             } catch (Exception) {
-                Debug.Log("Cannot instantiate " + res);
+                Debug.Log("Cannot instantiate " + res + " (" + e.resource.name+")");
                 continue;
             }
             

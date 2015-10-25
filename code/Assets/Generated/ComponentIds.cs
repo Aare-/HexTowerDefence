@@ -3,8 +3,8 @@ public static class ComponentIds {
     public const int Enemy = 1;
     public const int HexPosition = 2;
     public const int HexTileDefinition = 3;
-    public const int Killable = 4;
-    public const int MapDefinition = 5;
+    public const int MapDefinition = 4;
+    public const int Movable = 5;
     public const int Position = 6;
     public const int Resource = 7;
     public const int View = 8;
@@ -16,8 +16,8 @@ public static class ComponentIds {
         "Enemy",
         "HexPosition",
         "HexTileDefinition",
-        "Killable",
         "MapDefinition",
+        "Movable",
         "Position",
         "Resource",
         "View"
@@ -28,8 +28,8 @@ public static class ComponentIds {
         typeof(Enemy),
         typeof(HexPosition),
         typeof(HexTileDefinition),
-        typeof(Killable),
         typeof(MapDefinition),
+        typeof(Movable),
         typeof(PositionComponent),
         typeof(ResourceComponent),
         typeof(ViewComponent)

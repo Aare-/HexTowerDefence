@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Killable : IComponent {
-    public float life;
+public class Movable : IComponent {
+    public float velocity;
+
 }
