@@ -26,6 +26,9 @@ namespace Assets.Scripts.Controllers {
             if (Input.GetMouseButton(1)) {
                 float k15k = Input.GetAxis("Mouse X");
                 gameObject.transform.Rotate(0,k15k,0);
+                //TODO -> we should change camera in production
+                /*gameObject.transform.LookAt(Vector3.zero);
+                gameObject.transform.Translate(((k15k > 0) ? Vector3.right : Vector3.left) * Time.deltaTime);*/
             }
         }
         private void Move(){
