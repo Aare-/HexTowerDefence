@@ -7,7 +7,8 @@ using System.Text;
 public class ResourceComponent : IComponent {
     public enum ViewContainer {
         ui,
-        game_scene
+        game_scene,
+        camera
     }
 
     public ViewContainer container;
