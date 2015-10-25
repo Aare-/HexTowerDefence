@@ -8,16 +8,24 @@ using UnityEngine;
 public class AddHexTileSystem : IReactiveSystem {    
     public TriggerOnEvent trigger { get {  return Matcher.AllOf(Matcher.HexTileDefinition).OnEntityAdded(); }}    
 
-    public void Execute(List<Entity> entities) {
+    public void Execute(List<Entity> entities) {        
+
         foreach (Entity e in entities) {
+            string resourcePath;
+            resourcePath = 
+                GameController.Instance.ResourcesTilessPrefix + "/" +  
+                    (e.hexTileDefinition.isBlocked ?
+                        Enum.GetValues(typeof(HexTileDefinition.BlockedTileType)).GetRandomElement() : 
+                        e.hexTileDefinition.type.ToString());
+
             if(e.hasResource)
                 e.ReplaceResource(
                     ResourceComponent.ViewContainer.game_scene,
-                    GameController.Instance.ResourcesTilessPrefix + "/" + e.hexTileDefinition.type.ToString());                
+                    resourcePath);                
             else 
                 e.AddResource(
                     ResourceComponent.ViewContainer.game_scene,
-                    GameController.Instance.ResourcesTilessPrefix + "/" + e.hexTileDefinition.type.ToString());                        
+                    resourcePath);                        
         }
     }
 }

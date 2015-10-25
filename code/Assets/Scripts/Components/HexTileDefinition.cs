@@ -7,9 +7,12 @@ using System.Text;
 public class HexTileDefinition : IComponent {
     public enum TileType {
         tile_grass,
-        tile_grass_mushrooms,
+        tile_grass_mushrooms,        
+    }
+    public enum BlockedTileType {
         tile_grass_trees
     }
 
     public TileType type;
+    public bool isBlocked;
 }

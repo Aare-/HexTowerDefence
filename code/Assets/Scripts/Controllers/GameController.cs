@@ -24,19 +24,19 @@ public partial class GameController : Singleton<GameController> {
         #else
         return new Systems()
         #endif            
-            // Initialize            
-            .Add(pool.CreateSystem<CreateMap>())
-            .Add(pool.CreateSystem<CreateGUI>())            
+            // Initialize                        
+            .Add(pool.CreateSystem<InitGame>())            
 
             // Render            
             .Add(pool.CreateSystem<AddViewSystem>())
+            .Add(pool.CreateSystem<AddMapSystem>())
             .Add(pool.CreateSystem<AddHexTileSystem>())
             .Add(pool.CreateSystem<PositionHexSystem>())            
             .Add(pool.CreateSystem<PositionCartesianSystem>())            
             
             //Destroy
             .Add(pool.CreateSystem<RemoveViewSystem>())
-            ;
+            ;        
     }
 }
 
