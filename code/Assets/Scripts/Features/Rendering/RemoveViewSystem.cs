@@ -6,9 +6,9 @@ public class RemoveViewSystem : IMultiReactiveSystem, ISetPool, IEnsureComponent
     public TriggerOnEvent[] triggers {
         get {
             return new[] {
-            Matcher.Resource.OnEntityRemoved(),
-            Matcher.AllOf(Matcher.Resource, Matcher.Destroy).OnEntityAdded()
-        };
+                Matcher.Resource.OnEntityRemoved(),
+                Matcher.AllOf(Matcher.Resource, Matcher.Destroy).OnEntityAdded()
+            };
         }
     }
 
