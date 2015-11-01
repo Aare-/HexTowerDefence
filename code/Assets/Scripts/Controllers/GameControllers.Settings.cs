@@ -15,6 +15,9 @@ public partial class GameController : Singleton<GameController> {
     public string ResourcesTilessPrefix = "tiles";
     public string ResourcesTurretsPrefix = "turrets";
 
+    [Header("Map")]
+    public int MapRadius = 4;
+
     [Header("Enemies")]
     public float EnemySpawnDeltaTime = 1.0f;
     public float EnemySpawnRadius = 8.0f;

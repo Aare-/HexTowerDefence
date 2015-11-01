@@ -6,13 +6,12 @@ using System.Text;
 using UnityEngine;
 
 
-public class PositionHexSystem : IReactiveSystem, IEnsureComponents {
+public class PositionHexSystem : IReactiveSystem {
     public TriggerOnEvent trigger { get { return Matcher.AllOf(Matcher.HexPosition, Matcher.View).OnEntityAdded(); } }
-
-    public IMatcher ensureComponents { get { return Matcher.AllOf(Matcher.View); } }
 
     public void Execute(List<Entity> entities) {
         foreach (var e in entities) {
+
             float q = e.hexPosition.x;
             float r = e.hexPosition.z;
                 

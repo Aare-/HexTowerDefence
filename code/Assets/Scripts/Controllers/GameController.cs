@@ -12,10 +12,25 @@ public partial class GameController : Singleton<GameController> {
     void Start() {        
         _systems = createSystems(Pools.pool);
         _systems.Initialize();
+
+        #region Registering for events
+        TinyTokenManager.Instance.Register<Msg.SpawnBasicEnemy>("SPAWN_ENEMY" + GetInstanceID(),
+          (m) => {
+              //TODO: proper factory pattern
+              EnemyFactory.CreateBasicEnemy(Pools.pool.CreateEntity());
+          });
+        #endregion
+    }
+    void OnDestroy() {
+        #region Unregistering from events
+        TinyTokenManager.Instance.Unregister<Msg.SpawnBasicEnemy>("SPAWN_ENEMY" + GetInstanceID());
+        #endregion
     }
 
     void Update() {
-        _systems.Execute();
+        UpdateEnemies();
+
+        _systems.Execute();        
     }
 
     Systems createSystems(Pool pool) {
@@ -25,17 +40,15 @@ public partial class GameController : Singleton<GameController> {
         return new Systems()
         #endif            
             // Initialize                        
-            .Add(pool.CreateSystem<InitGame>())            
-			.Add(pool.CreateSystem<CreateCamera>())
+            .Add(pool.CreateSystem<InitGame>())
 
             // Update
-            .Add(pool.CreateSystem<MoveEnemiesSystem>())
+            .Add(pool.CreateSystem<MovableSystem>())
 
-            // Render          
-            .Add(pool.CreateSystem<AddTurretSystem>())       
+            // Render                                  
+            .Add(pool.CreateSystem<AddMapSystem>())            
             .Add(pool.CreateSystem<AddViewSystem>())
-            .Add(pool.CreateSystem<AddEnemiesSystem>())
-            .Add(pool.CreateSystem<AddMapSystem>())
+            .Add(pool.CreateSystem<AddNestedViewSystem>())
             .Add(pool.CreateSystem<AddHexTileSystem>())
             .Add(pool.CreateSystem<PositionHexSystem>())            
             .Add(pool.CreateSystem<PositionCartesianSystem>())            

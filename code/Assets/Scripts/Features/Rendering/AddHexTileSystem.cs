@@ -15,17 +15,11 @@ public class AddHexTileSystem : IReactiveSystem {
             resourcePath = 
                 GameController.Instance.ResourcesTilessPrefix + "/" +  
                     (e.hexTileDefinition.isBlocked ?
-                        Enum.GetValues(typeof(HexTileDefinition.BlockedTileType)).GetRandomElement() : 
+                        Enum.GetValues(typeof(HexTileDefinitionComponent.BlockedTileType)).GetRandomElement() : 
                         e.hexTileDefinition.type.ToString());
 
-            if(e.hasResource)
-                e.ReplaceResource(
-                    ResourceComponent.ViewContainer.game_scene,
-                    resourcePath);                
-            else 
-                e.AddResource(
-                    ResourceComponent.ViewContainer.game_scene,
-                    resourcePath);                        
+            e.ReplaceNestedView(SceneRoot.GAME_SCENE);
+            e.ReplaceResource(resourcePath);                                        
         }
     }
 }

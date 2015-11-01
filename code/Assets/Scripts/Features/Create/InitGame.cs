@@ -11,12 +11,9 @@ public class InitGame : IInitializeSystem, ISetPool {
         _pool = pool;
     }
 
-    public void Initialize() {
-        _pool.CreateEntity()            
-             .AddResource(ResourceComponent.ViewContainer.ui, "game_ui");
-
+    public void Initialize() {        
         //initialisating map
         _pool.CreateEntity()
-             .AddMapDefinition(4, 0.2f);
+             .AddMapDefinition(GameController.Instance.MapRadius, 0.2f);
     }
 }

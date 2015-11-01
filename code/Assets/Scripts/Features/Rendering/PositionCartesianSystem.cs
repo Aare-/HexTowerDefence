@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 
 public class PositionCartesianSystem : IReactiveSystem, IEnsureComponents {
-    public TriggerOnEvent trigger { get { return Matcher.AllOf(Matcher.View, Matcher.Position).OnEntityAdded(); } }
+    public TriggerOnEvent trigger { get { return Matcher.Position.OnEntityAdded(); } }
 
     public IMatcher ensureComponents { get { return Matcher.View; } }
 

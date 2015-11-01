@@ -4,6 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class ResourceComponent : IComponent {
-    public string name;
+public class AliveComponent : IComponent {
+    public float life;
 }

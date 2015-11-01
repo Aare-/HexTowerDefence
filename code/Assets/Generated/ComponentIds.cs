@@ -1,40 +1,43 @@
 public static class ComponentIds {
-    public const int Destroy = 0;
-    public const int Enemy = 1;
+    public const int Alive = 0;
+    public const int Destroy = 1;
     public const int HexPosition = 2;
     public const int HexTileDefinition = 3;
     public const int MapDefinition = 4;
     public const int Movable = 5;
-    public const int Position = 6;
-    public const int Resource = 7;
-    public const int TurretDefinition = 8;
-    public const int View = 9;
+    public const int NestedView = 6;
+    public const int Position = 7;
+    public const int Resource = 8;
+    public const int Turret = 9;
+    public const int View = 10;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 11;
 
     public static readonly string[] componentNames = {
+        "Alive",
         "Destroy",
-        "Enemy",
         "HexPosition",
         "HexTileDefinition",
         "MapDefinition",
         "Movable",
+        "NestedView",
         "Position",
         "Resource",
-        "TurretDefinition",
+        "Turret",
         "View"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AliveComponent),
         typeof(DestroyComponent),
-        typeof(Enemy),
-        typeof(HexPosition),
-        typeof(HexTileDefinition),
-        typeof(MapDefinition),
-        typeof(Movable),
+        typeof(HexPositionComponent),
+        typeof(HexTileDefinitionComponent),
+        typeof(MapDefinitionComponent),
+        typeof(MovableComponent),
+        typeof(NestedViewComponent),
         typeof(PositionComponent),
         typeof(ResourceComponent),
-        typeof(TurretDefinition),
+        typeof(TurretComponent),
         typeof(ViewComponent)
     };
 }

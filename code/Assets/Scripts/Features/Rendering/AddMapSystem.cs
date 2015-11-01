@@ -30,7 +30,7 @@ public class AddMapSystem : IReactiveSystem, ISetPool {
 
                     _pool.CreateEntity()
                         .AddHexTileDefinition(
-                            (HexTileDefinition.TileType)System.Enum.GetValues(typeof(HexTileDefinition.TileType)).GetRandomElement(),
+                            (HexTileDefinitionComponent.TileType)System.Enum.GetValues(typeof(HexTileDefinitionComponent.TileType)).GetRandomElement(),
                             Random.Range(0.0f, 1.0f) <= e.mapDefinition.chanceOfBlockedTile)
                         .AddHexPosition(i, j, k, elevation);
                 }            

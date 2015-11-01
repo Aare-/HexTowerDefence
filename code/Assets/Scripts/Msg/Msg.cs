@@ -11,5 +11,15 @@ public class Msg {
             }
         }
         #endregion
+    }
+    public class SpawnBasicEnemy : TinyMessenger.ITinyMessage {
+        #region Implementation
+        public SpawnBasicEnemy() { }
+        public object Sender {
+            get {
+                return null;
+            }
+        }
+        #endregion
     }	
 }
